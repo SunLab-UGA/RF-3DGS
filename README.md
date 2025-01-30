@@ -1,6 +1,11 @@
 # RF-3DGS
  RF-3DGS (Radio-Frequency 3D Gaussian Splatting) is an open-source framework designed for simulating and reconstructing radio radiance field. For more details, please check our paper: [RF-3DGS: Wireless Channel Modeling with Radio Radiance Field and 3D Gaussian Splatting](https://arxiv.org/abs/2411.19420). 
 
+
+
+https://github.com/user-attachments/assets/577c178f-ed51-4ba2-9dc7-46baa4386486
+
+
  The code and dataset for RF-3DGS will be released soon.
 
 
