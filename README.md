@@ -10,7 +10,7 @@ https://github.com/user-attachments/assets/577c178f-ed51-4ba2-9dc7-46baa4386486
 # We also support interactive demo on Dr. Sun's website: 
 
 
-For Real-time **Radio Radiance Field** Demo: [Radio Radiance Field in a Lobby:](https://sunlab.uga.edu/RF-3DGS-RRF/main.html)
+For Real-time **Radio Radiance Field** Demo: [Radio Radiance Field in a Lobby:](https://sunlab.uga.edu/RF-3DGS/RF-3DGS-RRF/main.html)
 
 For Real-time **3D Visual Reconstruction** Demo: [Optical Radiance Field via 3DGS:](https://sunlab.uga.edu/RF-3DGS/main.html)
 
