@@ -14,6 +14,14 @@ For Real-time **Radio Radiance Field** Demo: [Radio Radiance Field in a Lobby:](
 
 For Real-time **3D Visual Reconstruction** Demo: [Optical Radiance Field via 3DGS:](https://sunlab.uga.edu/RF-3DGS/main.html)
 
+
+Another example: 
+
+For Real-time **Radio Radiance Field** Demo: [Radio Radiance Field in UW-Madison (Dr. Feng Ye's Lab):](https://sunlab.uga.edu/RF-3DGS/RF-3DGS-UWM-RRF/main.html)
+
+For Real-time **3D Visual Reconstruction** Demo: [Optical Radiance Field via 3DGS (Dr. Feng Ye's Lab):](https://sunlab.uga.edu/RF-3DGS/RF-3DGS-UWM/main.html)
+
+
  The code and dataset for RF-3DGS will be released soon.
 
 
