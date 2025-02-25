@@ -212,6 +212,20 @@ namespace sibr {
 		return *this;
 	}
 
+	MeshData& MeshData::setScale(float s)
+	{
+		// TODO: insérer une instruction return ici
+		scale = s;
+		return *this;
+	}
+
+	MeshData& MeshData::setTransformation(sibr::Matrix4f& tr)
+	{
+		// TODO: insérer une instruction return ici
+		transformation = tr;
+		return *this;
+	}
+
 	MeshData & MeshData::setAlpha(float _alpha) {
 		alpha = _alpha;
 		return *this;
@@ -250,7 +264,7 @@ namespace sibr {
 	void ColorMeshShader::initShader(const std::string & name, const std::string & vert, const std::string & frag, const std::string & geom)
 	{
 		ShaderAlphaMVP::initShader(name, vert, frag, geom);
-		//user_color.init(shader, "user_color");
+		user_color.init(shader, "user_color");
 	}
 
 	void ColorMeshShader::setUniforms(const Camera & eye, const MeshData & data)

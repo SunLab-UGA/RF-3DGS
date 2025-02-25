@@ -35,6 +35,8 @@ namespace sibr {
 		*/
 		PointBasedRenderer();
 
+		void	meshToDevice(const Mesh& mesh);
+
 		/** Render the textured mesh.
 		\param mesh the mesh to render (should have UV attribute)
 		\param eye the viewpoint to use

@@ -335,6 +335,7 @@ namespace sibr
 		char result[PATH_MAX];
 		ssize_t c = readlink("/proc/self/exe", result, PATH_MAX);
 		len = c;
+		result[len]='\0';
 		const char* path;
 		if( c != -1 )
 			path = dirname(result);

@@ -48,7 +48,7 @@ if (MSVC11 OR MSVC12)
             CHECK_CACHED_VAR GLEW_INCLUDE_DIR	    PATH "glew-1.10.0/include" DOC "default empty doc"
             CHECK_CACHED_VAR GLEW_LIBRARIES         STRING LIST "debug;glew-1.10.0/${LIB_BUILT_DIR}/glew32d.lib;optimized;glew-1.10.0/${LIB_BUILT_DIR}/glew32.lib" DOC "default empty doc"
         )
-elseif (MSVC14)
+elseif (MSVC14 OR MSVC17)
     set(glew_multiset_arguments 
             CHECK_CACHED_VAR GLEW_INCLUDE_DIR	    PATH "glew-2.0.0/include" DOC "default empty doc"
             CHECK_CACHED_VAR GLEW_SHARED_LIBRARY_RELEASE       PATH "glew-2.0.0/${LIB_BUILT_DIR}/glew32.lib"
@@ -81,7 +81,7 @@ if (MSVC11 OR MSVC12)
     set(assimp_set_arguments 
         CHECK_CACHED_VAR ASSIMP_DIR PATH "Assimp_3.1_fix"
     )
-elseif (MSVC14)
+elseif (MSVC14 OR MSVC17)
     set(assimp_set_arguments 
         CHECK_CACHED_VAR ASSIMP_DIR PATH "Assimp-4.1.0"
     )
@@ -155,7 +155,7 @@ if (WIN32)
                 #CHECK_CACHED_VAR Boost_COMPILER             STRING "-${Boost_WIN3RDPARTY_VCID}" DOC "vcid (eg: -vc110 for MSVC11)"
                 CHECK_CACHED_VAR Boost_COMPILER             STRING "-vc110" DOC "vcid (eg: -vc110 for MSVC11)" # NOTE: if it doesnt work, uncomment this option and set the right value for VisualC id
             )
-    elseif (MSVC14)
+    elseif (MSVC14 OR MSVC17)
         set(boost_multiset_arguments 
                 CHECK_CACHED_VAR BOOST_ROOT                 PATH "boost-1.71"
                 CHECK_CACHED_VAR BOOST_INCLUDEDIR 		    PATH "boost-1.71"
