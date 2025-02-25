@@ -131,7 +131,7 @@ RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, 
    ```
    For more training parameters, refer to the [3DGS documentation](https://github.com/graphdeco-inria/gaussian-splatting/tree/b17ded92b56ba02b6b7eaba2e66a2b0510f27764).
 
-3. Install and run the SIBR Viewer to visualize trained models:
+3. Optional: Install and run the SIBR Viewer to visualize trained models:
    ```bash
    sudo apt install -y libglew-dev libassimp-dev libboost-all-dev libgtk-3-dev libopencv-dev libglfw3-dev libavdevice-dev libavcodec-dev libeigen3-dev libxxf86vm-dev libembree-dev
    cd SIBR_viewers
