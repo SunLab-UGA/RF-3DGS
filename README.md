@@ -122,7 +122,7 @@ RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, 
 2. Train RF-3DGS (Start from visual trained checkpoint):
    ```bash
    python train.py -s RF-3DGS_dataset/training-rf-spectrum/3dgs_MPC_100 \
-                   -m output/3dgs_MPC_test \
+                   -m output/rf-3dgs_MPC_test \
                    --iterations 40000 \
                    --start_checkpoint "RF-3DGS_dataset/blender_visual_trained/chkpnt30000.pth" \
                    --eval \
@@ -131,7 +131,15 @@ RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, 
    ```
    For more training parameters, refer to the [3DGS documentation](https://github.com/graphdeco-inria/gaussian-splatting/tree/b17ded92b56ba02b6b7eaba2e66a2b0510f27764).
 
-3. Optional: Install and run the SIBR Viewer to visualize trained models:
+3. Optional: Training the Visual Geometry: To train the visual geometry, ensure you have an appropriate visual dataset or use our blender_visual_dataset. You can then follow the original 3DGS documentation to configure your training arguments. Additionally, set the --checkpoint_iterations parameter to specify the iteration from which the second RF training stage should commence. Here is a example:
+  ```
+  python train.py -s RF-3DGS_dataset/blender_visual_dataset/ \
+                  -m output/rf-3dgs-visual \
+                  --iterations 30000 \
+                  --checkpoint_iterations 30000\
+  ``` 
+
+4. Optional: Install and run the SIBR Viewer to visualize trained models:
    ```bash
    sudo apt install -y libglew-dev libassimp-dev libboost-all-dev libgtk-3-dev libopencv-dev libglfw3-dev libavdevice-dev libavcodec-dev libeigen3-dev libxxf86vm-dev libembree-dev
    cd SIBR_viewers
