@@ -131,7 +131,7 @@ RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, 
    ```
    For more training parameters, refer to the [3DGS documentation](https://github.com/graphdeco-inria/gaussian-splatting/tree/b17ded92b56ba02b6b7eaba2e66a2b0510f27764).
 
-3. Optional: Training the Visual Geometry: To train the visual geometry, ensure you have an appropriate visual dataset or use our blender_visual_dataset. You can then follow the original 3DGS documentation to configure your training arguments. Additionally, set the --checkpoint_iterations parameter to specify the iteration from which the second RF training stage should commence. Here is a example:
+3. Optional: Training the Visual Geometry: To train the visual geometry, ensure you have an appropriate visual dataset or use our blender_visual_dataset. You can then follow the original 3DGS documentation to configure your training arguments. Additionally, set the --checkpoint_iterations parameter to specify the iteration from which the second RF training stage should commence.
   ```
   python train.py -s RF-3DGS_dataset/blender_visual_dataset/ \
                   -m output/rf-3dgs-visual \
