@@ -1,0 +1,9 @@
+*.o
+*.out
+*.log
+*.tmp
+RF-3DGS_dataset/
+output/
+*.cmake
+*.pyc
+*/simple-knn
