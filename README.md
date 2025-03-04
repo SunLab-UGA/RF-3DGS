@@ -4,13 +4,30 @@
 
 RF-3DGS is an innovative method for comprehensive radio radiance field reconstruction. RF-3DGS achieves highly accurate geometric information representation and exceptional rendering speed. This approach integrates both visual and radio radiance fields with encoded channel state information (CSI), providing a robust solution for advanced wireless communication and related applications.
 
+
+https://github.com/user-attachments/assets/577c178f-ed51-4ba2-9dc7-46baa4386486
+
+
+## We also provide interactive demos on Sunlab's website: 
+
+For Real-time **Radio Radiance Field** Demo: [Radio Radiance Field in a Lobby:](https://sunlab.uga.edu/RF-3DGS/RF-3DGS-RRF/main.html)
+
+For Real-time **3D Visual Reconstruction** Demo: [Optical Radiance Field via 3DGS:](https://sunlab.uga.edu/RF-3DGS/main.html)
+
+
+Another example: 
+
+For Real-time **Radio Radiance Field** Demo: [Radio Radiance Field in UW-Madison (Dr. Feng Ye's Lab):](https://sunlab.uga.edu/RF-3DGS/RF-3DGS-UWM-RRF/main.html)
+
+For Real-time **3D Visual Reconstruction** Demo: [Optical Radiance Field via 3DGS (Dr. Feng Ye's Lab):](https://sunlab.uga.edu/RF-3DGS/RF-3DGS-UWM/main.html)
+
 ## Requirements
 
 ### Hardware Requirements
-- **GPU**: A CUDA-compatible GPU with at least 24 GB VRAM is recommended for radio spatial spectrum simulation and 3DGS training. If not available, adjust the simulation settings for lower memory consumption or use the pre-generated spectrum dataset provided in our repository. For lower VRAM setup, refer to the 3DGS documentation.
+- **GPU**: A CUDA-compatible GPU with at least 24 GB VRAM is recommended for radio spatial spectrum simulation and full RF-3DGS training. If not available, adjust the simulation settings for lower memory consumption, and use the pre-generated spectrum dataset provided in our repository or you can just start the RF-3DGS training from our visual reconstruction checkpoint.
 
 ### Software Requirements
-- **Operating System**: Ubuntu 22.04 LTS (recommended). Other versions may work but require compatibility checks for GPU drivers, CUDA, and PyTorch versions, as well as for building the 3DGS submodules.
+- **Operating System**: Ubuntu 22.04 LTS (recommended). Other versions may work but require compatibility checks for GPU drivers, CUDA, and PyTorch versions.
 
 - **Python 3.8** 
 
@@ -26,11 +43,11 @@ conda activate rf-3dgs
   [3DGS commit b17ded92](https://github.com/graphdeco-inria/gaussian-splatting/tree/b17ded92b56ba02b6b7eaba2e66a2b0510f27764). Therefore, it is recommended to use an isolated environment specifically for RF-3DGS to avoid conflicts with other 3DGS projects.
 
 
-## Simulation Tutorial 
+## Optional: Simulation Tutorial 
 
-RF-3DGS uses the [Sionna](https://github.com/NVlabs/sionna) library for radio spectrum simulation. Follow these steps to set up the simulation pipeline. (You can skip this part if use our RF-3DGS dataset.)
+RF-3DGS uses the [Sionna](https://github.com/NVlabs/sionna) library for radio spectrum simulation. Follow these steps to set up the Sionna simulator and read our tutorial. (You can skip this part if use our RF-3DGS dataset.)
 
-### Sionna Installation 
+### Sionna Docker Installation
 
 1. Clone the Sionna repository:
    ```bash
@@ -62,29 +79,30 @@ Download Jupyter Notebook at:
 [RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/12Biy_566ImZtyyOuEOiHNPTtQ0iRyIUQ/view?usp=sharing). 
 
 
-## Dataset preparation
+## Dataset
 
-We provide our simulated radio spatial spectra for direct use with RF-3DGS: [RF-3DGS-Dataset](https://drive.google.com/file/d/1L6bbOWTlJyTPIz1oCuEJZuMr3T776hXm/view?usp=sharing). This dataset includes the following components:
-- blender_visual_dataset: Contains the visual dataset for training the geometric representation.
-- blender_visual_trained: Provides a pre-trained geometric model, allowing you to start training the Radiance Reconstruction Field (RRF) directly in the second stage.
-- training_rf_spectrum: Contains the radio spatial spectra used for training the RRF.
+We provide our simulated radio spatial spectra for direct use with RF-3DGS: [RF-3DGS-Dataset](https://drive.google.com/file/d/1L6bbOWTlJyTPIz1oCuEJZuMr3T776hXm/view?usp=sharing). This dataset includes the following:
 
-### Visual Dataset
-The visual dataset is generated in Blender using the Blender-NeRF add-on. Within our Blender scene file, a simple script is provided to generate the camera trajectory. You can then use the Blender-NeRF add-on to choose this camera trajectory and render images with precise camera poses.
-For real-world images without known poses, you should follow the COLMAP pipeline to estimate the camera pose for each image before using them.
+- **blender_visual_dataset**: Contains the visual dataset for training the geometric representation.
+- **blender_visual_trained**: Provides the pre-trained geometry checkpoint, allowing you to start training the Radiance Reconstruction Field (RRF) directly in the second stage.
+- **training_rf_spectrum**: Contains the radio spatial spectra used for training the RRF. (There are 800 samples, which were processed into 3200 90-degree FoV pinhole model spectra to suit the original 3DGS CUDA kernel.)
+- **RF-3DGS_trained_RRF**: The trained RRF model.
 
+### Customize Your Dataset
 
-### RF Dataset Structure
+#### RF Dataset
 
-1. **Data Format**:
-RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, you should organize them to the same structure. This includes:
-- Spectra data `images/00xxx.png`
-- Array poses `images.txt` and projection models `cameras.txt`
-- `train_index.txt` and `test_index.txt` files for indexing, or set your own split method in dataset_readers.
+To create a custom RF dataset, follow these steps:
 
-2. **Folder Structure**:
+1. **Prepare the 3D Model**: Ensure you have a detailed 3D model built in Blender, exported as a Mitsuba `.xml` project, and loaded into Sionna for simulation. For example, our **NIST_lobby** model is provided in [RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/12Biy_566ImZtyyOuEOiHNPTtQ0iRyIUQ/view?usp=sharing).
+   - Follow the **Sionna Documentation** to set up your own.
+   - Alternatively, use simple models from [WiSegRT](https://github.com/SunLab-UGA/WiSegRT) (note: light sources need to be added for later visual dataset rendering).
+
+2. **Generate the Spectrum**: At the end of the [RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/12Biy_566ImZtyyOuEOiHNPTtQ0iRyIUQ/view?usp=sharing), functions are provided to generate the required spectrum.
+
+3. **Reorganize the Spectrum to COLMAP Format**:
    ```plaintext
-   project_root/
+   dataset/
    ├── images/
    │   ├── 00001.png
    │   ├── 00002.png
@@ -96,7 +114,28 @@ RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, 
    │       └── points3D.txt
    ├── train_index.txt
    ├── test_index.txt
----
+   ```
+
+   This structure includes:
+   - **Spectra data**: `images/00xxx.png`
+   - **Array poses**: `images.txt` and projection models in `cameras.txt`
+   - **Indexing files**: `train_index.txt` and `test_index.txt`, or define a custom split method in `dataset_readers`.
+   - **Optional point cloud file**: `points3D.txt` (generated by COLMAP or [Blender-NeRF](https://github.com/maximeraafat/BlenderNeRF)). If omitted, training will initialize with a random point cloud, which is still effective for RRF representation.
+
+#### Visual Dataset
+
+To create your custom visual dataset:
+
+1. **Use the [Blender-NeRF](https://github.com/maximeraafat/BlenderNeRF) Add-on**:
+   - Within our **NIST_lobby** model, a **Blender Python script** is provided to generate the `train_camera` trajectory.
+   - Load this camera trajectory into Blender-NeRF and render images with precise camera poses.
+   - This process outputs a **NeRF-synthetic format dataset**, similar to ours.
+
+2. **Rendering Configuration**:
+   - Set the **output file format** as .png.
+   - Set the rendering quality related parameters like sampling and denoising.
+   - Select **CUDA** as the rendering device.
+   - Use the **dummy test set** option in the Blender-NeRF add-on.
 
 
 
@@ -107,7 +146,7 @@ RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, 
    git clone <RF-3DGS-Repo-Link>
    cd RF-3DGS
    ```
-- Install a compatible version of PyTorch from the [previous-versions](https://pytorch.org/get-started/previous-versions/) in the conda environment. For example, for CUDA 11.7 and conda, you can find this command:
+- Install a compatible version of PyTorch from [pytorch-previous-versions](https://pytorch.org/get-started/previous-versions/) in the conda environment. For example, for CUDA 11.7 and conda, you can find this command:
    ```
    conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cuda=11.7 -c pytorch -c nvidia
    ```
@@ -150,7 +189,7 @@ RF-3DGS uses the COLMAP dataset format. If you want to use your custom RF data, 
    ```bash
    SIBR_viewers/install/bin/SIBR_gaussianViewer_app -m output/3dgs_MPC_test
    ```
-
+   Or you can use other viewers like https://github.com/antimatter15/splat.(This web viewer is convienient for assessing training quality, you can download the project, click the `.html` file, and drag your `.ply` file into the browser; however, its Gaussian sorting mechanism is a simplistic implementation. As a result, the rendering outcome may be incorrect in many views. )
 ---
 
 ## Troubleshooting Submodule Builds
