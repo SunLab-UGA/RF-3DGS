@@ -59,7 +59,7 @@ RF-3DGS uses the [Sionna](https://github.com/NVlabs/sionna) library for radio sp
 
 6. Copy the provided Jupyter notebook tutorials to your project directory `{your/path}` and start using them.
 Download Jupyter Notebook at: 
-[RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/1OYgfRwIGhT05J8GlAr9U1zsX1yELzZ36/view?usp=sharing). 
+[RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/12Biy_566ImZtyyOuEOiHNPTtQ0iRyIUQ/view?usp=sharing). 
 
 
 ## Dataset preparation
