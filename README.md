@@ -2,7 +2,7 @@
 
 ## Overview
 
-RF-3DGS is an innovative method for comprehensive radio radiance field reconstruction. RF-3DGS achieves highly accurate geometric information representation and exceptional rendering speed. This approach integrates both visual and radio radiance fields with encoded channel state information (CSI), providing a robust solution for advanced wireless communication and related applications. More details for the paper: [RF-3DGS:](https://arxiv.org/abs/2411.19420). 
+RF-3DGS is an innovative method for comprehensive radio radiance field reconstruction. RF-3DGS achieves highly accurate geometric information representation and exceptional rendering speed. This approach integrates both visual and radio radiance fields with encoded channel state information (CSI), providing a robust solution for advanced wireless communication and related applications. More details for the paper: [RF-3DGS: Wireless Channel Modeling with Radio Radiance Field and 3D Gaussian Splatting](https://arxiv.org/abs/2411.19420). 
 
 https://github.com/user-attachments/assets/577c178f-ed51-4ba2-9dc7-46baa4386486
 
