@@ -89,7 +89,7 @@ We provide our simulated radio spatial spectra for direct use with RF-3DGS: [RF-
 
 To create a custom RF dataset, follow these steps:
 
-1. **Prepare the 3D Model**: Ensure you have a detailed 3D model built in Blender, exported as a Mitsuba `.xml` project, and loaded into Sionna for simulation. For example, our **NIST_lobby** model is provided in [RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/12Biy_566ImZtyyOuEOiHNPTtQ0iRyIUQ/view?usp=sharing).
+1. **Prepare the 3D Model**: Ensure you have a detailed 3D model built in Blender, exported as a Mitsuba `.xml` project, and loaded into Sionna for simulation.
    - Follow the **Sionna Documentation** to set up your own.
    - Alternatively, use simple models from [WiSegRT](https://github.com/SunLab-UGA/WiSegRT) (note: light sources need to be added for later visual dataset rendering).
 
