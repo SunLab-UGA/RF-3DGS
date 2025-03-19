@@ -73,10 +73,6 @@ RF-3DGS uses the [Sionna](https://github.com/NVlabs/sionna) library for radio sp
    Access the JupyterLab server at:  
    [`http://127.0.0.1:8887/lab/`](http://127.0.0.1:8887/lab/).
 
-6. Copy the provided Jupyter notebook tutorials to your project directory `{your/path}` and start using them.
-Download Jupyter Notebook at: 
-[RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/12Biy_566ImZtyyOuEOiHNPTtQ0iRyIUQ/view?usp=sharing). 
-
 
 ## Dataset
 
@@ -97,8 +93,8 @@ To create a custom RF dataset, follow these steps:
    - Follow the **Sionna Documentation** to set up your own.
    - Alternatively, use simple models from [WiSegRT](https://github.com/SunLab-UGA/WiSegRT) (note: light sources need to be added for later visual dataset rendering).
 
-2. **Generate the Spectrum**: At the end of the [RF-3DGS Jupyter Notebook](https://drive.google.com/file/d/12Biy_566ImZtyyOuEOiHNPTtQ0iRyIUQ/view?usp=sharing), functions are provided to generate the required spectrum.
-
+2. **Generate the Spectrum**: use Sionna to generate the radio spatial spectrum or use or RF-3DGS dataset.
+   
 3. **Reorganize the Spectrum to COLMAP Format**:
    ```plaintext
    dataset/
