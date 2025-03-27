@@ -73,6 +73,8 @@ RF-3DGS uses the [Sionna](https://github.com/NVlabs/sionna) library for radio sp
    Access the JupyterLab server at:  
    [`http://127.0.0.1:8887/lab/`](http://127.0.0.1:8887/lab/).
 
+6. We also have a pipeline for simulating and generating radio spatial spectra using Sionna. If you're interested in this part of work, you may contact Dr. Sun at hsun@uga.edu for collaboration opportunities.
+
 
 ## Dataset
 
