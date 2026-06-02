@@ -158,6 +158,13 @@ To create your custom visual dataset:
    git clone <RF-3DGS-Repo-Link>
    cd RF-3DGS
    ```
+- Optional: Use the provided Dockerfile for a containerized setup to automate some of the below build steps. Installs Python 3.8, PyTorch, some dependencies, and prebuilds submodules. Use a volume mount to access RF-3DGS repository and datasets. The NVIDIA Container Toolkit is required.
+
+   ```bash
+   docker build -t rf-3dgs-img .
+   docker run --name rf-3dgs --gpus all -it -v "$(pwd)":/workspace rf-3dgs-img
+   ```
+   
 - Install a compatible version of PyTorch from [pytorch-previous-versions](https://pytorch.org/get-started/previous-versions/) in the conda environment. For example, for CUDA 11.7 and conda, you can find this command:
    ```
    conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cuda=11.7 -c pytorch -c nvidia
